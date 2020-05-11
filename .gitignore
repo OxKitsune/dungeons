@@ -14,6 +14,10 @@
 .idea/
 *.iml
 
+# Maven
+target/
+
+
 # Package Files #
 *.jar
 *.war
