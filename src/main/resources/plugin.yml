@@ -2,3 +2,7 @@ name: Dungeons
 version: ${project.version}
 main: org.gamers.dungeons.Dungeons
 api-version: 1.15
+commands:
+  generate:
+    description: "Generate a new dungeon"
+    aliases: [gen]
