@@ -71,7 +71,7 @@ public class DungeonRoomRegistry {
 
 
             // Make sure the file is a schematic
-            if(!file.getAbsolutePath().endsWith(".schem")){
+            if(!file.getName().endsWith(".schem")){
                 Log.warn("DungeonRoomRegistry", file.getName() + " is not a schematic, but it's in the schematics directory!");
                 continue;
             }
@@ -106,6 +106,8 @@ public class DungeonRoomRegistry {
             blockEntitiesToRemove.forEach(index -> {
                 roomSchematic.getBlockEntityMap().remove(index);
             });
+
+            if(room.getId() == null) throw new IllegalArgumentException("Room for schematic " + file.getName() + " doesn't contain an id sign!");
 
             // Register the dungeon room
             dungeonRooms.put(room.getId(), room);

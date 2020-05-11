@@ -6,7 +6,7 @@
 
     <groupId>org.gamers</groupId>
     <artifactId>dungeons</artifactId>
-    <version>0.0.2.3</version>
+    <version>0.0.2.4</version>
     <packaging>jar</packaging>
 
     <name>Dungeons</name>

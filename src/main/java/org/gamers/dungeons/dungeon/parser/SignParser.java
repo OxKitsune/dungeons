@@ -1,6 +1,9 @@
 package org.gamers.dungeons.dungeon.parser;
 
 import org.gamers.dungeons.dungeon.DungeonRoom;
+import org.gamers.dungeons.util.Log;
+
+import java.util.Arrays;
 
 public abstract class SignParser {
 
@@ -22,6 +25,10 @@ public abstract class SignParser {
      * @param dungeonRoom - the dungeon room to parse this for
      */
     public boolean parseSign (String[] lines, DungeonRoom dungeonRoom){
+        Arrays.stream(lines).forEach(line -> {
+            Log.info("SignParser", line);
+        });
+
         if(lines[0] != null || !lines[0].equals("[DUNGEON]")) return false;
 
         // Copy over the sign data.
