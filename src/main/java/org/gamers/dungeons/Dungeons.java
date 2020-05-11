@@ -1,6 +1,9 @@
 package org.gamers.dungeons;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import org.gamers.dungeons.command.GenerateCommand;
+import org.gamers.dungeons.dungeon.DungeonGenerator;
+import org.gamers.dungeons.dungeon.DungeonRoomRegistry;
 
 public class Dungeons extends JavaPlugin {
 
@@ -13,6 +16,12 @@ public class Dungeons extends JavaPlugin {
         // Set the plugin instance
         instance = this;
 
+        // Initialise singletons
+        DungeonRoomRegistry.init(this);
+        DungeonGenerator.init(this);
+
+        // Register commands
+        getCommand("generate").setExecutor(new GenerateCommand());
     }
 
 
