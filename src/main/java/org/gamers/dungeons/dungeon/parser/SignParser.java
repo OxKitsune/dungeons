@@ -25,15 +25,17 @@ public abstract class SignParser {
      * @param dungeonRoom - the dungeon room to parse this for
      */
     public boolean parseSign (String[] lines, DungeonRoom dungeonRoom){
+
         Arrays.stream(lines).forEach(line -> {
-            Log.info("SignParser", line);
+            Log.info(getClass().getName(), line);
         });
 
         if(lines[0] != null || !lines[0].equals("[DUNGEON]")) return false;
 
+        Log.info(getClass().getName(), "Parsing sign data");
 
         // Parse the sign if it is possible to parse
-        if(lines[1] != null || lines[1].equals(id)) return parseData(dungeonRoom, lines[2], lines[3]);
+        if(lines[1] != null && lines[1].equals(id)) return parseData(dungeonRoom, lines[2], lines[3]);
 
         // return false
         return false;
