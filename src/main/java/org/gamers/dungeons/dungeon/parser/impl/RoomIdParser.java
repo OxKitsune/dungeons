@@ -1,5 +1,6 @@
 package org.gamers.dungeons.dungeon.parser.impl;
 
+import org.bukkit.craftbukkit.libs.jline.internal.Log;
 import org.gamers.dungeons.dungeon.DungeonRoom;
 import org.gamers.dungeons.dungeon.parser.SignParseError;
 import org.gamers.dungeons.dungeon.parser.SignParser;
@@ -20,6 +21,8 @@ public class RoomIdParser extends SignParser {
         if(data[0] == null) throw new SignParseError("Invalid room id for " + dungeonRoom.getId());
 
         dungeonRoom.setId(data[0]);
+
+        Log.info("RoomIdParser", "Room Id: " + data[0]);
         return true;
     }
 }

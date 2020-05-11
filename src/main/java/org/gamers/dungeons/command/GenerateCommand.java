@@ -25,7 +25,7 @@ public class GenerateCommand implements CommandExecutor {
 
                 // Paste the dungeon
                 DungeonGenerator.getInstance().generateDungeon(player.getLocation());
-                player.sendMessage(ChatColor.RED + "Pasting the dungeon...");
+                player.sendMessage(ChatColor.YELLOW + "Pasting the dungeon...");
             }
             else {
                 commandSender.sendMessage(ChatColor.RED + "This command can only be used by players.");

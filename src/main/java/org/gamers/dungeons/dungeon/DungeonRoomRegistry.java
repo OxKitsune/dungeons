@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 public class DungeonRoomRegistry {
 
@@ -68,11 +69,14 @@ public class DungeonRoomRegistry {
         // Loop through all files in schematics directory
         for(File file : schematicsDirectory.listFiles()){
 
+
             // Make sure the file is a schematic
-            if(!file.getName().endsWith(".schem")){
+            if(!file.getAbsolutePath().endsWith(".schem")){
                 Log.warn("DungeonRoomRegistry", file.getName() + " is not a schematic, but it's in the schematics directory!");
                 continue;
             }
+
+            Log.info("DungeonRoomRegistry", "Loading room schematic: " + file.getName()) ;
 
             // Load the schematic
             Schematic roomSchematic = new Schematic(file.getAbsolutePath());
@@ -92,7 +96,7 @@ public class DungeonRoomRegistry {
 
                     // Parse the sign data
                     signParsers.forEach(signParser -> {
-                        if(signParser.parseData(((BlockEntitySign)blockEntity).getLines(), room)) blockEntitiesToRemove.add(index);
+                        if(signParser.parseSign(((BlockEntitySign)blockEntity).getLines(), room)) blockEntitiesToRemove.add(index);
                     });
 
                 }
@@ -105,6 +109,7 @@ public class DungeonRoomRegistry {
 
             // Register the dungeon room
             dungeonRooms.put(room.getId(), room);
+            Log.info("DungeonRoomRegistry", "Loaded " + room.getId() + " as dungeon room!");
         }
     }
 
