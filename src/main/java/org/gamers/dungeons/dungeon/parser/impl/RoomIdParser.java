@@ -16,7 +16,7 @@ public class RoomIdParser extends SignParser {
 
 
     @Override
-    public boolean parseData(String[] data, DungeonRoom dungeonRoom) {
+    public boolean parseData(DungeonRoom dungeonRoom, String... data) {
 
         if(data[0] == null) throw new SignParseError("Invalid room id for " + dungeonRoom.getId());
 

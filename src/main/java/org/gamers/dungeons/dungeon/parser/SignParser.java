@@ -31,12 +31,9 @@ public abstract class SignParser {
 
         if(lines[0] != null || !lines[0].equals("[DUNGEON]")) return false;
 
-        // Copy over the sign data.
-        String[] signData = new String[2];
-        System.arraycopy(lines, 2, lines, 0, 2);
 
         // Parse the sign if it is possible to parse
-        if(lines[1] != null || lines[1].equals(id)) return parseData(signData, dungeonRoom);
+        if(lines[1] != null || lines[1].equals(id)) return parseData(dungeonRoom, lines[2], lines[3]);
 
         // return false
         return false;
@@ -48,7 +45,7 @@ public abstract class SignParser {
      * @param data - an array that contains the last two signs of the sign that's being parsed
      * @param dungeonRoom - the dungeon room this is being parsed for
      */
-    public abstract boolean parseData (String[] data, DungeonRoom dungeonRoom);
+    public abstract boolean parseData(DungeonRoom dungeonRoom, String... data);
 
     /**
      * Get the id of this sign parser.
