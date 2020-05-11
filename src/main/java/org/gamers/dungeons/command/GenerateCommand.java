@@ -29,7 +29,7 @@ public class GenerateCommand implements CommandExecutor {
                 }
                 
                 // Paste the dungeon
-                DungeonGenerator.getInstance().generateDungeon(player.getLocation(), args[1]);
+                DungeonGenerator.getInstance().generateDungeon(player.getLocation(), args[0]);
                 player.sendMessage(ChatColor.YELLOW + "Pasting the dungeon...");
             }
             else {
