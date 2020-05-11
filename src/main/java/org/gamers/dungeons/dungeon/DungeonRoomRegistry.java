@@ -1,5 +1,6 @@
 package org.gamers.dungeons.dungeon;
 
+import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -105,6 +106,7 @@ public class DungeonRoomRegistry {
             // Remove parsed signs from schematic
             blockEntitiesToRemove.forEach(index -> {
                 roomSchematic.getBlockEntityMap().remove(index);
+                roomSchematic.getBlockDataArray()[index] = Material.AIR.createBlockData();
             });
 
             if(room.getId() == null) throw new IllegalArgumentException("Room for schematic " + file.getName() + " doesn't contain an id sign!");
