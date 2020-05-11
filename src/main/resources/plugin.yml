@@ -1,0 +1,4 @@
+name: Dungeons
+version: ${project.version}
+main: org.gamers.dungeons.Dungeons
+api-version: 1.15
