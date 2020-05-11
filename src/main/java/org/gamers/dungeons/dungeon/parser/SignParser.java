@@ -30,7 +30,7 @@ public abstract class SignParser {
             Log.info(getClass().getName(), line);
         });
 
-        if(lines[0] != null || !lines[0].equals("[DUNGEON]")) return false;
+        if(lines[0] == null || !lines[0].equals("[DUNGEON]")) return false;
 
         Log.info(getClass().getName(), "Parsing sign data");
 
