@@ -56,7 +56,7 @@ public class DungeonRoomRegistry {
     public void loadRooms () throws IOException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 
         // Check if the schematics directory exists
-        File schematicsDirectory = new File(plugin.getDataFolder(), "schematics" + File.pathSeparator);
+        File schematicsDirectory = new File(plugin.getDataFolder(), "schematics" + File.separator);
 
         // Make sure the schematic directory exists!
         if(!schematicsDirectory.exists() || !schematicsDirectory.isDirectory() || schematicsDirectory.listFiles().length < 1){

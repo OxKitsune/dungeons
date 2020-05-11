@@ -4,7 +4,18 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Log {
 
-    private static void message (ChatColor colour, String prefix, String message){
+    // ANSI escape code
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
+
+    private static void message (String colour, String prefix, String message){
         System.out.println(colour + "[" + prefix + "] " + message);
     }
 
@@ -14,7 +25,7 @@ public class Log {
      * @param message - the message
      */
     public static void info (String prefix, String message){
-        message(ChatColor.WHITE, prefix, message);
+        message(ANSI_WHITE, prefix, message);
     }
 
     /**
@@ -23,7 +34,7 @@ public class Log {
      * @param message - the message
      */
     public static void warn (String prefix, String message){
-        message(ChatColor.YELLOW, prefix, message);
+        message(ANSI_YELLOW, prefix, message);
     }
 
     /**
@@ -32,7 +43,7 @@ public class Log {
      * @param message - the message
      */
     public static void error (String prefix, String message){
-        message(ChatColor.RED, prefix, message);
+        message(ANSI_RED, prefix, message);
     }
 
 }
