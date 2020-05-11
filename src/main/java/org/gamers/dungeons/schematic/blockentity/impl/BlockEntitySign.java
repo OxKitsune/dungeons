@@ -1,5 +1,6 @@
 package org.gamers.dungeons.schematic.blockentity.impl;
 
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.chat.ComponentSerializer;
 import net.minecraft.server.v1_15_R1.NBTTagCompound;
 import org.bukkit.Location;
@@ -30,7 +31,7 @@ public class BlockEntitySign extends BlockEntity {
 
         // Parse the lines of the sign
         for(int i = 0; i < 4; i++){
-            lines[i] = ComponentSerializer.parse(nbtData.getString("Text" + (i+1)))[0].toLegacyText();
+            lines[i] = ChatColor.stripColor(ComponentSerializer.parse(nbtData.getString("Text" + (i+1)))[0].toLegacyText());
         }
     }
 
