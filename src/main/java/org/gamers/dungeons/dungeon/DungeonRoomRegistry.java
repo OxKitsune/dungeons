@@ -103,10 +103,14 @@ public class DungeonRoomRegistry {
                 }
             });
 
+
+            // Add air to pallete
+            roomSchematic.getBlockPalette().put(6969, Material.AIR.createBlockData());
+
             // Remove parsed signs from schematic
             blockEntitiesToRemove.forEach(index -> {
                 roomSchematic.getBlockEntityMap().remove(index);
-                roomSchematic.getBlockDataArray()[index] = Material.AIR.createBlockData();
+                roomSchematic.getBlockDataArray()[index] = (byte) 6969;
             });
 
             if(room.getId() == null) throw new IllegalArgumentException("Room for schematic " + file.getName() + " doesn't contain an id sign!");

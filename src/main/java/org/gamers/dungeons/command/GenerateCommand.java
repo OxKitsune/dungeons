@@ -23,8 +23,13 @@ public class GenerateCommand implements CommandExecutor {
                     return true;
                 }
 
+                if(args.length == 0){
+                    player.sendMessage(ChatColor.RED + "Please define the schematic you want to paste");
+                    return true;
+                }
+                
                 // Paste the dungeon
-                DungeonGenerator.getInstance().generateDungeon(player.getLocation());
+                DungeonGenerator.getInstance().generateDungeon(player.getLocation(), args[1]);
                 player.sendMessage(ChatColor.YELLOW + "Pasting the dungeon...");
             }
             else {

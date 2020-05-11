@@ -22,10 +22,10 @@ public class DungeonGenerator {
         this.plugin = plugin;
     }
 
-    public void generateDungeon (Location location){
+    public void generateDungeon (Location location, String id){
 
         // Paste the base room
-        DungeonRoomRegistry.getInstance().getDungeonRoom("base_room").ifPresent(dungeonRoom -> {
+        DungeonRoomRegistry.getInstance().getDungeonRoom(id).ifPresent(dungeonRoom -> {
             dungeonRoom.paste(location);
         });
 
